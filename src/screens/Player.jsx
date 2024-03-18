@@ -10,7 +10,8 @@ const Player = () => {
   // console.log(location); 
 
   const [tracks, setTracks] = useState([]);
-  const [currentTrack, setCurrentTrack] = useState(0);
+  const [currentTrack, setCurrentTrack] = useState({});
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     if (location?.state) {
@@ -24,13 +25,17 @@ const Player = () => {
     }
   }, [location.state]);
 
+  useEffect(() => {
+    setCurrentTrack(tracks[currentIndex]?.track);
+  }, [currentIndex, tracks]);
+
   return (
     <div className="screen-container flex">
-      <div className="left-player-body"></div>
+      <div className="left-player-body">
+      </div>
       <div className="right-player-body">
-        {console.log(currentTrack)}
-        <SongCard album={currentTrack.album}/>
-        <Queue album/>
+        <SongCard album={currentTrack?.album} />
+        <Queue tracks={tracks} setCurrentIndex={setCurrentIndex} />
       </div>
     </div>
   );
