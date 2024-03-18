@@ -22,7 +22,6 @@ const Circle = ({ color, percentage, size, strokeWidth }) => {
 };
 
 const ProgressCircle = ({ percentage, isPlaying, image, size, color }) => {
-  console.log(image);
     return (
     <div className="progress-circle flex">
       <svg width={size} height={size}>

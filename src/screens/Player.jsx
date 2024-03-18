@@ -8,7 +8,7 @@ import AudioPlayer from "../components/audioPlayer/AudioPlayer";
 
 const Player = () => {
   const location = useLocation();
-  // console.log(location); 
+  // console.log(location);
 
   const [tracks, setTracks] = useState([]);
   const [currentTrack, setCurrentTrack] = useState({});
@@ -21,7 +21,7 @@ const Player = () => {
         .then((res) => {
           // console.log(res.data);
           setTracks(res.data.items);
-          setCurrentTrack(res.data.items[0].track)
+          setCurrentTrack(res.data.items[0].track);
         });
     }
   }, [location.state]);
@@ -33,7 +33,12 @@ const Player = () => {
   return (
     <div className="screen-container flex">
       <div className="left-player-body">
-        <AudioPlayer />
+        <AudioPlayer
+          currentTrack={currentTrack}
+          total={tracks}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
       </div>
       <div className="right-player-body">
         <SongCard album={currentTrack?.album} />
