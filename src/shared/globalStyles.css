@@ -5,12 +5,20 @@
   border-radius: 30px;
   background-color: #1e2a3e;
   opacity: 1;
-  background-image: repeating-radial-gradient(
+  /* background-image: repeating-radial-gradient(
       circle at 0 0,
       transparent 0,
       #1e2a3e 40px
     ),
-    repeating-linear-gradient(#23365655, #233656);
+    repeating-linear-gradient(#23365655, #233656); */
+  background-color: #091d26;
+  opacity: 1;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #091d26 25px
+    ),
+    repeating-linear-gradient(#09404455, #094044);
 }
 
 .flex {

@@ -6,6 +6,8 @@ import { FaGripfire, FaPlay } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
 import { IoLibrary } from "react-icons/io5";
 import { MdSpaceDashboard } from "react-icons/md";
+import { FaCompactDisc } from "react-icons/fa";
+
 import apiClient from '../../spotify';
 
 
@@ -14,7 +16,8 @@ const Sidebar = () => {
     useEffect(()=>{
         apiClient.get("me")
         .then(response => {
-            setImage(response.data.images[0].url);
+            setImage(response.data.images[0]?.url);
+            console.log(response.data.images[0].url);
         })
         .catch(error => {
             console.error("Error fetching user data:", error);
@@ -26,7 +29,8 @@ const Sidebar = () => {
         <img src={image} className='profile-img' alt='pfp'/>
         <div>
             <SidebarButton title="Library" to="/library" icon={<IoLibrary />}/>
-            <SidebarButton title="Player" to="/player" icon={<FaPlay />}/>
+            <SidebarButton title="Train" to="/train" icon={<FaCompactDisc />}/>
+            {/* <SidebarButton title="Player" to="/player" icon={<FaPlay />}/> */}
             {/* <SidebarButton title="Feed" to="/feed" icon={<MdSpaceDashboard />}/>
             <SidebarButton title="Trending" to="/trending" icon={<FaGripfire />}/>
             <SidebarButton title="Favorites" to="/favorites" icon={<MdFavorite />}/> */}

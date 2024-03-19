@@ -9,6 +9,7 @@ import "./home.css";
 import Sidebar from "../components/sidebar/Sidebar";
 import Login from "./Login";
 import { setClientToken } from "../spotify";
+import Train from "./Train";
 
 const Home = () => {
   const [token, setToken] = useState("");
@@ -40,11 +41,12 @@ const Home = () => {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Library />} />
-          <Route path="/feed" element={<Feed />} />
-          <Route path="/trending" element={<Trending />} />
+          {/* <Route path="/feed" element={<Feed />} /> */}
+          {/* <Route path="/trending" element={<Trending />} /> */}
           <Route path="/player" element={<Player />} />
-          <Route path="/favorites" element={<Favorites />} />
+          {/* <Route path="/favorites" element={<Favorites />} /> */}
           <Route path="/library" element={<Library />} />
+          <Route path="/train" element={<Train />} />          
         </Routes>
       </div>
     </Router>
